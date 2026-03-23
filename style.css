@@ -182,6 +182,118 @@ section { padding: 90px 5%; position: relative; z-index: 1; }
 .why-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
 .why-card p { font-size: 0.86rem; color: var(--muted); line-height: 1.7; font-weight: 300; }
 
+/* ── COURSE VIDEO ── */
+#course-video {
+  background: var(--dark);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding-top: 96px;
+  padding-bottom: 96px;
+}
+
+#course-video .sh {
+  max-width: 760px;
+}
+
+.video-shell {
+  position: relative;
+  width: 100%;
+  max-width: 980px;
+  margin: 2rem auto 0;
+  aspect-ratio: 16 / 9;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #000;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.05) inset,
+    0 10px 30px rgba(66, 32, 117, 0.25);
+  transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 320ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.video-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0) 35%, rgba(0, 0, 0, 0.2));
+  z-index: 2;
+}
+
+.video-shell::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  box-shadow: inset 0 0 35px rgba(0, 0, 0, 0.35);
+  z-index: 2;
+}
+
+.video-shell:hover {
+  transform: scale(1.02);
+  box-shadow:
+    0 28px 72px rgba(0, 0, 0, 0.56),
+    0 0 0 1px rgba(255, 255, 255, 0.08) inset,
+    0 12px 34px rgba(66, 32, 117, 0.3);
+}
+
+.video-frame {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.video-play {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 84px;
+  height: 84px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(8, 8, 14, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  transition: transform 280ms cubic-bezier(0.22, 1, 0.36, 1), background-color 280ms ease, box-shadow 280ms ease;
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.38),
+    0 0 0 1px rgba(255, 255, 255, 0.18) inset;
+}
+
+.video-play:hover {
+  transform: scale(1.06);
+  background: rgba(8, 8, 14, 0.55);
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.44),
+    0 0 0 1px rgba(255, 255, 255, 0.24) inset;
+}
+
+.video-play:active {
+  transform: scale(0.97);
+}
+
+.video-play-triangle {
+  width: 0;
+  height: 0;
+  border-top: 11px solid transparent;
+  border-bottom: 11px solid transparent;
+  border-left: 18px solid rgba(255, 255, 255, 0.92);
+  margin-left: 4px;
+}
+
+.video-shell.is-playing .video-play {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
 /* ── LEARN ── */
 #learn { background: var(--dark); }
 .learn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; margin-top: 3rem; }
@@ -482,6 +594,24 @@ footer { background: var(--black); border-top: 1px solid var(--border); padding:
     padding: 94px 4.5% 56px;
     min-height: auto;
   }
+  #course-video {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+  .video-shell {
+    margin-top: 1.3rem;
+    border-radius: 20px;
+  }
+  .video-play {
+    width: 68px;
+    height: 68px;
+  }
+  .video-play-triangle {
+    border-top: 9px solid transparent;
+    border-bottom: 9px solid transparent;
+    border-left: 15px solid rgba(255, 255, 255, 0.92);
+    margin-left: 3px;
+  }
   .hero-pill {
     margin-bottom: 1.1rem;
     font-size: 0.62rem;
@@ -708,43 +838,86 @@ footer { background: var(--black); border-top: 1px solid var(--border); padding:
   position: fixed;
   bottom: 20px;
   right: 20px;
-  z-index: 1000;
+  z-index: 2200;
 }
 .whatsapp-float a {
-  display: block;
-  width: 60px;
-  height: 60px;
-  background: #25d366;
+  display: flex;
+  width: 66px;
+  height: 66px;
+  background: transparent;
+  position: relative;
   border-radius: 50%;
-  text-align: center;
-  line-height: 60px;
-  font-size: 14px;
-  font-weight: 800;
-  letter-spacing: 0.6px;
-  color: white;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3), 0 0 20px rgba(37, 211, 102, 0.4);
-  transition: transform 0.3s, box-shadow 0.3s;
-  animation: pulse 2s infinite;
+  border: none;
+  outline: none;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+  transition: transform 340ms cubic-bezier(0.22, 1, 0.36, 1), filter 340ms cubic-bezier(0.22, 1, 0.36, 1);
+  animation: floatWpp 3.4s ease-in-out infinite;
+  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  will-change: transform;
 }
+
+.whatsapp-float a::before {
+  content: "";
+  position: absolute;
+  inset: -16px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(37, 211, 102, 0.42) 0%, rgba(37, 211, 102, 0.2) 38%, rgba(37, 211, 102, 0) 72%);
+  filter: blur(10px);
+  opacity: 0.75;
+  transform: scale(1);
+  transition: opacity 340ms cubic-bezier(0.22, 1, 0.36, 1), transform 340ms cubic-bezier(0.22, 1, 0.36, 1);
+  animation: pulseGlow 4.6s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.whatsapp-float a img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  filter: saturate(1.06) contrast(1.03);
+  position: relative;
+  z-index: 1;
+  transform: translateZ(0);
+}
+
 .whatsapp-float a:hover {
-  transform: scale(1.1);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3), 0 0 30px rgba(37, 211, 102, 0.6);
+  transform: translateY(-2px) scale(1.07);
 }
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
+
+.whatsapp-float a:hover::before {
+  opacity: 0.92;
+  transform: scale(1.08);
+}
+
+.whatsapp-float a:active {
+  transform: translateY(0) scale(0.95);
+  transition-duration: 120ms;
+}
+
+@keyframes floatWpp {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.72; transform: scale(1); }
+  50% { opacity: 0.86; transform: scale(1.04); }
 }
 @media (max-width: 600px) {
   .whatsapp-float {
-    bottom: 15px;
-    right: 15px;
+    bottom: 14px;
+    right: 14px;
   }
   .whatsapp-float a {
-    width: 50px;
-    height: 50px;
-    line-height: 50px;
-    font-size: 20px;
+    width: 58px;
+    height: 58px;
   }
 }
 

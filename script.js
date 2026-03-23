@@ -95,6 +95,25 @@ function notifyMe(courseName) {
   openNotifyModal(courseName);
 }
 
+// ── HERO VIDEO PLAY ──
+function initCourseVideo() {
+  const videoShell = document.getElementById('videoShell');
+  const playBtn = document.getElementById('videoPlayBtn');
+  const frame = document.getElementById('courseVideoFrame');
+
+  if (!videoShell || !playBtn || !frame) return;
+
+  playBtn.addEventListener('click', function () {
+    if (!videoShell.classList.contains('is-playing')) {
+      const autoplaySrc = frame.dataset.autoplaySrc;
+      if (autoplaySrc) {
+        frame.src = autoplaySrc;
+      }
+      videoShell.classList.add('is-playing');
+    }
+  });
+}
+
 // Close modal when clicking outside
 document.addEventListener('click', function (e) {
   const modal = document.getElementById('enrollModal');
@@ -112,6 +131,7 @@ document.addEventListener('keydown', function (e) {
 
 // Auto-show modal sometimes (30% chance, after 10 seconds)
 document.addEventListener('DOMContentLoaded', function() {
+  initCourseVideo();
   setTimeout(() => {
     if (Math.random() < 0.3) { // 30% chance
       openEnrollModal();
