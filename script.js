@@ -28,20 +28,49 @@ function toggleFaq(btn) {
   }
 }
 
-// ── NOTIFY BUTTON ──
-function notifyMe(courseName) {
-  alert('Thanks! We will notify you when ' + courseName + ' launches.');
+// ── REUSABLE POPUP SYSTEM ──
+function lockScroll(shouldLock) {
+  document.body.style.overflow = shouldLock ? 'hidden' : 'auto';
 }
 
-// ── ENROLLMENT MODAL ──
+function openPopup(mode, courseName = '') {
+  const modal = document.getElementById('enrollModal');
+  const title = document.getElementById('popupTitle');
+  const enrollView = document.getElementById('enrollView');
+  const notifyView = document.getElementById('notifyView');
+  const joinCommunityBtn = document.getElementById('joinCommunityBtn');
+
+  if (mode === 'notify') {
+    title.textContent = courseName ? `Notify Me: ${courseName}` : 'Course Updates';
+    enrollView.style.display = 'none';
+    notifyView.style.display = 'block';
+    joinCommunityBtn.href = 'https://chat.whatsapp.com/Gpl7ivEduUSLgckb1aHgBe';
+  } else {
+    title.textContent = 'Enroll in AI-Integrated Digital Marketing Course';
+    notifyView.style.display = 'none';
+    enrollView.style.display = 'block';
+  }
+
+  modal.style.display = 'block';
+  lockScroll(true);
+}
+
 function openEnrollModal() {
-  document.getElementById('enrollModal').style.display = 'block';
-  document.body.style.overflow = 'hidden'; // Prevent background scrolling
+  openPopup('enroll');
+}
+
+function openNotifyModal(courseName) {
+  openPopup('notify', courseName);
 }
 
 function closeEnrollModal() {
   document.getElementById('enrollModal').style.display = 'none';
-  document.body.style.overflow = 'auto'; // Restore scrolling
+  lockScroll(false);
+}
+
+// ── NOTIFY BUTTON ──
+function notifyMe(courseName) {
+  openNotifyModal(courseName);
 }
 
 // Close modal when clicking outside
@@ -54,7 +83,7 @@ document.addEventListener('click', function (e) {
 
 // Close modal on Escape key
 document.addEventListener('keydown', function (e) {
-  if (e.key === 'Escape') {
+  if (e.key === 'Escape' && document.getElementById('enrollModal').style.display === 'block') {
     closeEnrollModal();
   }
 });
@@ -78,7 +107,8 @@ function submitEnrollForm(event) {
   const phone = form.querySelector('#phone').value.trim();
   const goals = form.querySelector('#goals').value.trim();
   const experience = form.querySelector('#experience').value;
-  const whatsapp = form.querySelector('#whatsapp').value;
+  const whatsappField = form.querySelector('#whatsapp');
+  const whatsapp = whatsappField ? whatsappField.value : 'false';
 
   if (!name || !email || !phone) {
     alert('Please complete Name, Email, and Phone.');
