@@ -33,6 +33,26 @@ function lockScroll(shouldLock) {
   document.body.style.overflow = shouldLock ? 'hidden' : 'auto';
 }
 
+function resetEnrollFormState() {
+  const form = document.getElementById('enrollForm');
+  const success = document.getElementById('successMsg');
+
+  if (form) {
+    form.reset();
+
+    const submitBtn = form.querySelector('.submit-btn');
+    if (submitBtn) {
+      const initialText = submitBtn.dataset.initialText || 'Submit & Get Course Details →';
+      submitBtn.textContent = initialText;
+      submitBtn.disabled = false;
+    }
+  }
+
+  if (success) {
+    success.style.display = 'none';
+  }
+}
+
 function openPopup(mode, courseName = '') {
   const modal = document.getElementById('enrollModal');
   const title = document.getElementById('popupTitle');
@@ -49,6 +69,7 @@ function openPopup(mode, courseName = '') {
     title.textContent = 'Enroll in AI-Integrated Digital Marketing Course';
     notifyView.style.display = 'none';
     enrollView.style.display = 'block';
+    resetEnrollFormState();
   }
 
   modal.style.display = 'block';
@@ -66,6 +87,7 @@ function openNotifyModal(courseName) {
 function closeEnrollModal() {
   document.getElementById('enrollModal').style.display = 'none';
   lockScroll(false);
+  resetEnrollFormState();
 }
 
 // ── NOTIFY BUTTON ──
@@ -108,7 +130,6 @@ function submitEnrollForm(event) {
   const goals = form.querySelector('#goals').value.trim();
   const experience = form.querySelector('#experience').value;
   const whatsappField = form.querySelector('#whatsapp');
-  const whatsapp = whatsappField ? whatsappField.value : 'false';
 
   if (!name || !email || !phone) {
     alert('Please complete Name, Email, and Phone.');
@@ -116,11 +137,17 @@ function submitEnrollForm(event) {
   }
 
   const submitBtn = form.querySelector('.submit-btn');
-  const initialText = submitBtn.textContent;
+  const initialText = submitBtn.dataset.initialText || submitBtn.textContent;
+  submitBtn.dataset.initialText = initialText;
   submitBtn.textContent = 'Sending...';
   submitBtn.disabled = true;
 
-  const payload = { name, email, phone, goals, experience, whatsapp };
+  const payload = { name, email, phone, goals, experience };
+
+  // Only include WhatsApp preference when the field exists in the active form.
+  if (whatsappField) {
+    payload.whatsapp = whatsappField.value;
+  }
   const url = 'https://script.google.com/macros/s/AKfycbwqarcr1GdQoL3KCvTv0jiqVmfOZuELuAVQBCjMZY9YnT4fSXHnfhIbl0Yji2PAcpOH/exec';
 
   fetch(url, {
@@ -134,16 +161,12 @@ function submitEnrollForm(event) {
 
 // wait 2s BEFORE closing modal
 setTimeout(() => {
-  form.reset();
   closeEnrollModal();
-  success.style.display = 'none';
 }, 2000);
   })
   .catch(err => {
     console.error('Submit error:', err);
     alert('Something went wrong.');
-  })
-  .finally(() => {
     submitBtn.textContent = initialText;
     submitBtn.disabled = false;
   });
