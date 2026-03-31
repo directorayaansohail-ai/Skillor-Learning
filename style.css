@@ -1143,3 +1143,24 @@ footer { background: var(--black); border-top: 1px solid var(--border); padding:
     font-size: 15px;
   }
 }
+/* ── MULTI-PAGE NAV ADDITIONS ── */
+/* Add these rules to your existing style.css file */
+
+/* Active nav link highlight */
+.nav-links a.active {
+  color: var(--white) !important;
+}
+.nav-links a.active::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--yellow);
+  border-radius: 2px;
+  margin-top: 2px;
+}
+
+/* Mobile menu active link */
+.mobile-menu a.active {
+  color: var(--yellow);
+}
