@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Skillor Learning — Kerala's First AI Digital Marketing Academy</title>
+  <meta name="description" content="Learn about Skillor Learning — founded by Ayaan Sohail, Kerala's first AI-integrated digital marketing academy with a mission to make every student future-ready."/>
+  <meta name="keywords" content="Skillor Learning, about Skillor, Ayaan Sohail, digital marketing academy Kerala, AI marketing trainer Kerala, dropshipping course India"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://skillorlearning.com/about.html"/>
+  <link rel="icon" type="image/png" href="/favicon.png" sizes="48x48"/>
+  <link rel="apple-touch-icon" href="/favicon.png"/>
+
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="About Skillor Learning — Kerala's First AI Digital Marketing Academy"/>
+  <meta property="og:description" content="Founded by Ayaan Sohail, Skillor Learning is Kerala's first AI-integrated digital marketing academy. Our mission: make every student future-ready."/>
+  <meta property="og:url" content="https://skillorlearning.com/about.html"/>
+  <meta property="og:image" content="https://skillorlearning.com/Skillor-Logo-10.png"/>
+  <meta property="og:site_name" content="Skillor Learning"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="About Skillor Learning — Kerala's First AI Digital Marketing Academy"/>
+  <meta name="twitter:description" content="Learn about Skillor Learning and founder Ayaan Sohail, a 5+ year digital entrepreneur building the next generation of AI-powered marketers."/>
+  <meta name="twitter:image" content="https://skillorlearning.com/Skillor-Logo-10.png"/>
+
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    /* About-page specific styles */
+    .about-hero {
+      min-height: 60vh;
+      padding: 140px 5% 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+    }
+    .about-hero h1 { font-size: clamp(2.4rem,5.5vw,5rem); font-weight:900; line-height:1.0; letter-spacing:-2px; margin-bottom:1.4rem; max-width:820px; }
+    .about-hero p { font-size:1.05rem; color:var(--muted); line-height:1.85; max-width:520px; font-weight:300; }
+
+    .mission-section { background:var(--dark2); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+    .mission-grid { display:grid; grid-template-columns:1fr 1fr; gap:2px; background:var(--border); border:1px solid var(--border); border-radius:16px; overflow:hidden; margin-top:3rem; }
+    .mission-card { background:var(--dark2); padding:2.5rem 2rem; }
+    .mission-card:hover { background:var(--dark3); }
+    .mission-label { font-family:'JetBrains Mono',monospace; font-size:0.65rem; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:var(--yellow); margin-bottom:1rem; }
+    .mission-card h3 { font-size:1.5rem; font-weight:800; margin-bottom:0.75rem; line-height:1.2; }
+    .mission-card p { font-size:0.92rem; color:var(--muted); line-height:1.85; font-weight:300; }
+
+    .story-section { background:var(--dark); border-top:1px solid var(--border); }
+    .story-grid { display:grid; grid-template-columns:1fr 1.2fr; gap:5rem; align-items:start; margin-top:3rem; }
+    .story-timeline { display:flex; flex-direction:column; gap:0; }
+    .tl-item { display:flex; gap:1.5rem; position:relative; }
+    .tl-item:not(:last-child)::before { content:''; position:absolute; left:10px; top:22px; width:1px; height:calc(100% + 2px); background:var(--border-p); }
+    .tl-dot { width:22px; height:22px; border-radius:50%; background:var(--yellow-m); border:1px solid var(--border-y); flex-shrink:0; display:flex; align-items:center; justify-content:center; margin-top:0; }
+    .tl-dot::after { content:''; width:6px; height:6px; background:var(--yellow); border-radius:50%; }
+    .tl-body { padding-bottom:2rem; }
+    .tl-year { font-family:'JetBrains Mono',monospace; font-size:0.68rem; font-weight:700; color:var(--yellow); letter-spacing:1px; margin-bottom:0.25rem; }
+    .tl-title { font-size:0.95rem; font-weight:700; margin-bottom:0.3rem; }
+    .tl-desc { font-size:0.82rem; color:var(--muted); line-height:1.65; font-weight:300; }
+
+    .story-right p { font-size:0.98rem; color:var(--muted); line-height:2; font-weight:300; margin-bottom:1.5rem; }
+    .story-right p:first-child { font-size:1.15rem; color:var(--white); font-weight:400; }
+
+    .values-section { background:var(--dark2); border-top:1px solid var(--border); }
+    .values-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:1.2rem; margin-top:3rem; }
+    .val-card { background:var(--glass); border:1px solid var(--border); backdrop-filter:blur(16px); border-radius:14px; padding:1.8rem 1.5rem; transition:border-color 0.2s,transform 0.2s; }
+    .val-card:hover { border-color:var(--border-p); transform:translateY(-3px); }
+    .val-num { font-family:'JetBrains Mono',monospace; font-size:2rem; font-weight:700; color:var(--yellow); opacity:0.35; line-height:1; margin-bottom:0.75rem; }
+    .val-card h4 { font-size:0.97rem; font-weight:700; margin-bottom:0.4rem; }
+    .val-card p { font-size:0.83rem; color:var(--muted); line-height:1.65; font-weight:300; }
+
+    .founder-section { background:var(--dark); border-top:1px solid var(--border); }
+
+    @media (max-width:900px) {
+      .mission-grid { grid-template-columns:1fr; }
+      .story-grid { grid-template-columns:1fr; gap:2.5rem; }
+    }
+    @media (max-width:600px) {
+      .about-hero { padding:100px 4.5% 60px; }
+      .about-hero h1 { font-size:clamp(2rem,10vw,2.6rem); letter-spacing:-1px; }
+      .mission-card { padding:1.5rem 1.1rem; }
+      .val-card { padding:1.3rem 1.1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+<div class="blob blob-3"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="logo">
+    <img src="Skillor-Logo-10.png" alt="Skillor Learning logo" style="height:40px;">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="courses.html">Courses</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="#" class="nav-cta" onclick="openEnrollModal(); return false;">Enroll Now →</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleMenu()">☰</button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="toggleMenu()">Home</a>
+  <a href="about.html" onclick="toggleMenu()">About</a>
+  <a href="courses.html" onclick="toggleMenu()">Courses</a>
+  <a href="contact.html" onclick="toggleMenu()">Contact</a>
+  <a href="#" onclick="openEnrollModal(); toggleMenu(); return false;">Enroll Now →</a>
+</div>
+
+<!-- ABOUT HERO -->
+<section class="about-hero">
+  <div class="hero-pill">
+    <div class="hero-pill-dot"></div>
+    Our Story
+  </div>
+  <h1>
+    Built by a doer.<br>
+    <span class="y">Designed for achievers.</span>
+  </h1>
+  <p>Skillor Learning was born from a simple belief: AI + digital skills shouldn't be gatekept. Every student in Kerala deserves access to real, modern, practical education that actually leads to income.</p>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span>Our Mission</span><span>AI Education</span><span>Kerala's First</span>
+    <span>Practical Learning</span><span>Real Skills</span><span>Career Ready</span>
+    <span>Placement Support</span><span>Live Sessions</span><span>Build. Earn. Grow.</span>
+    <span>Our Mission</span><span>AI Education</span><span>Kerala's First</span>
+    <span>Practical Learning</span><span>Real Skills</span><span>Career Ready</span>
+    <span>Placement Support</span><span>Live Sessions</span><span>Build. Earn. Grow.</span>
+  </div>
+</div>
+
+<!-- MISSION & VISION -->
+<section class="mission-section">
+  <div class="stag">Mission &amp; Vision</div>
+  <h2 class="sh">Why we built <span class="y">Skillor.</span></h2>
+  <p class="ssub">The digital economy is changing at the speed of AI. We're here to make sure Kerala's students aren't left behind.</p>
+  <div class="mission-grid">
+    <div class="mission-card">
+      <div class="mission-label">Our Mission</div>
+      <h3>Empower every student with AI-ready skills</h3>
+      <p>To provide the most practical, up-to-date AI + digital marketing education in Kerala — giving every student the tools, skills, and confidence to earn and grow in the new digital economy. No fluff, no theory-only classes. Just real skills that work in the real world.</p>
+    </div>
+    <div class="mission-card">
+      <div class="mission-label">Our Vision</div>
+      <h3>Become India's leading AI-first digital academy</h3>
+      <p>To build a generation of AI-powered digital entrepreneurs, marketers, content creators, and freelancers who can compete globally. We envision Skillor as the go-to name for anyone in India who wants to master AI + digital skills and build a future-proof career or business.</p>
+    </div>
+    <div class="mission-card">
+      <div class="mission-label">Our Promise</div>
+      <h3>Skills that translate directly to income</h3>
+      <p>Every module, every session, every project is designed with one question in mind: will this make our students more employable, more freelanceable, and more competitive? If it doesn't pass that test, it doesn't make it into the curriculum.</p>
+    </div>
+    <div class="mission-card">
+      <div class="mission-label">Our Approach</div>
+      <h3>95% practical. 100% mentor-led. Always live.</h3>
+      <p>We don't believe in pre-recorded passive learning. Skillor is built around live sessions, real feedback, real projects, and a mentor who has actually done what he teaches. This is the difference between a certificate and a skill.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BRAND STORY -->
+<section class="story-section">
+  <div class="stag">Brand Story</div>
+  <h2 class="sh">How Skillor <span class="y">came to be.</span></h2>
+  <div class="story-grid">
+    <div class="story-timeline">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-body">
+          <div class="tl-year">2019</div>
+          <div class="tl-title">Ayaan starts his digital journey</div>
+          <div class="tl-desc">Begins freelancing, content creation, and running digital campaigns for local Kerala businesses from scratch.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-body">
+          <div class="tl-year">2021</div>
+          <div class="tl-title">First international brand collaboration</div>
+          <div class="tl-desc">Ayaan collaborates with international brands on AI-powered campaigns, building a reputation for results-first digital marketing.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-body">
+          <div class="tl-year">2022</div>
+          <div class="tl-title">AI integration begins</div>
+          <div class="tl-desc">Builds and manages multiple AI-integrated businesses, pioneers AI-driven content creation and campaign automation in Kerala.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-body">
+          <div class="tl-year">2023</div>
+          <div class="tl-title">The idea for Skillor is born</div>
+          <div class="tl-desc">Seeing students struggle with outdated courses, Ayaan decides to create the academy he wished had existed when he started.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-body">
+          <div class="tl-year">2024–25</div>
+          <div class="tl-title">Skillor Learning launches</div>
+          <div class="tl-desc">Kerala's first AI-integrated digital marketing academy launches with its flagship 3-month live course. First batch delivers real results.</div>
+        </div>
+      </div>
+    </div>
+    <div class="story-right">
+      <p>"I spent years figuring out AI + digital marketing the hard way — expensive mistakes, outdated tutorials, and wasted time. Skillor exists so students in Kerala don't have to go through that."</p>
+      <p>Ayaan Sohail is a digital entrepreneur, content creator, and theatre advertisement director with 5+ years of real-world experience. He's worked with international brands, run AI-powered campaigns, and built multiple businesses from the ground up — all before founding Skillor.</p>
+      <p>The name Skillor is built on one idea: skills that matter, taught by someone who lives them. Every module in the curriculum is something Ayaan has personally used to build a real business or campaign. Nothing is theoretical. Everything is battle-tested.</p>
+      <p>Today, Skillor Learning is the only academy in Kerala that teaches AI tools, digital marketing, video editing, e-commerce, and freelancing in a single live, mentor-led program — with a focus on portfolio-building, placements, and real income.</p>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values-section">
+  <div class="stag">Our Values</div>
+  <h2 class="sh">The principles we <span class="y">never compromise on.</span></h2>
+  <div class="values-grid">
+    <div class="val-card"><div class="val-num">01</div><h4>Practical Over Theoretical</h4><p>If you can't use it in the real world, we don't teach it. Every session has a tangible output.</p></div>
+    <div class="val-card"><div class="val-num">02</div><h4>AI-First Thinking</h4><p>We embed AI tools into every module because the future belongs to those who can leverage AI, not fear it.</p></div>
+    <div class="val-card"><div class="val-num">03</div><h4>Mentor Accessibility</h4><p>Ayaan is present, responsive, and invested in every student's success. No faceless corporate structure.</p></div>
+    <div class="val-card"><div class="val-num">04</div><h4>Results That Matter</h4><p>Success for us means students getting jobs, landing clients, and building income — not just collecting certificates.</p></div>
+    <div class="val-card"><div class="val-num">05</div><h4>Community-Driven Growth</h4><p>Students learn from each other. Our WhatsApp community keeps collaboration and accountability alive between sessions.</p></div>
+    <div class="val-card"><div class="val-num">06</div><h4>Continuous Evolution</h4><p>The digital landscape changes weekly. Our curriculum is living and breathing — always updated with what's working now.</p></div>
+  </div>
+</section>
+
+<!-- MENTOR SECTION -->
+<section class="founder-section">
+  <div class="stag">One Of Your Mentors</div>
+  <h2 class="sh">Learn from someone who <span class="y">actually does it.</span></h2>
+  <div class="mentor-grid">
+    <div class="mentor-glass-card">
+      <div class="mentor-img">
+        <img src="ayaan2.jpg" alt="Ayaan Sohail — Founder of Skillor Learning, Digital Entrepreneur and AI Marketing Expert" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"/>
+        <div class="mentor-img-fb" style="display:none;">AS</div>
+      </div>
+      <div class="mentor-card-foot">
+        <div class="mentor-nm">Ayaan Sohail</div>
+        <div class="mentor-rl">Digital Entrepreneur &amp; Founder, Skillor Learning</div>
+        <span class="mentor-badge">5+ yrs experience</span>
+      </div>
+    </div>
+    <div class="mentor-r">
+      <p class="mentor-q">"I built Skillor because AI + digital skills can't be taught through theory. The only real way to learn is by doing — creating with AI tools, running automated campaigns, and iterating with cutting-edge technology."</p>
+      <p class="mentor-bio">Ayaan Sohail is a digital entrepreneur and content creator with 5+ years of industry experience, specializing in AI-powered marketing solutions. He has collaborated with international brands, directed theatre advertisements and digital campaigns, and built multiple AI-integrated businesses across Kerala and beyond.</p>
+      <div class="mentor-pts">
+        <div class="mentor-pt"><div class="mentor-pt-dot"></div>5+ years of hands-on AI + digital marketing experience</div>
+        <div class="mentor-pt"><div class="mentor-pt-dot"></div>Collaborated with international brands on AI-powered campaigns</div>
+        <div class="mentor-pt"><div class="mentor-pt-dot"></div>Built and managed multiple AI-integrated businesses</div>
+        <div class="mentor-pt"><div class="mentor-pt-dot"></div>Directed theatre advertisements and digital campaigns</div>
+        <div class="mentor-pt"><div class="mentor-pt-dot"></div>Founder of Kerala's first AI-integrated digital academy</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-sec">
+  <div class="cta-inner">
+    <h2>Ready to learn from<br><span style="color:var(--yellow)">the best?</span></h2>
+    <p>Join Skillor Learning and build your future with AI-powered digital skills.</p>
+    <div class="cta-btns">
+      <a href="#" onclick="openEnrollModal(); return false;" class="btn-y">Enroll in Skillor Learning →</a>
+      <a href="courses.html" class="btn-glass">View Courses</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <div class="foot-logo"><img src="Skillor-Logo-06.png" alt="Skillor Learning footer logo" style="height:85px;"></div>
+      <p>Kerala's first AI-integrated digital academy. Building confident, future-ready digital marketers and content creators.</p>
+    </div>
+    <div class="foot-col">
+      <h5>Pages</h5>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="about.html">About Ayaan</a></li>
+        <li><a href="index.html#testimonials">Student Stories</a></li>
+        <li><a href="courses.html">Curriculum</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="tel:+918606826935">+91 8606826935</a></li>
+        <li><a href="mailto:skillorlearning@gmail.com">skillorlearning@gmail.com</a></li>
+        <li><a href="contact.html">Kerala, Trivandrum</a></li>
+        <li><a href="https://www.instagram.com/skillorlearning" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        <li><a href="https://youtube.com/@ayaanskillor" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+        <li><a href="https://wa.me/+918606826935" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-btm">
+    <p>© 2025 Skillor Learning™ · All rights reserved · Kerala, India · Trademark filed. Skillor™ is a registered brand.</p>
+    <div class="foot-socials">
+      <a href="https://www.instagram.com/skillorlearning" target="_blank" rel="noopener noreferrer" aria-label="Skillor Learning on Instagram">IG</a>
+      <a href="https://youtube.com/@ayaanskillor" target="_blank" rel="noopener noreferrer" aria-label="Skillor Learning on YouTube">YT</a>
+      <a href="https://wa.me/+918606826935?text=Hi%2C%20I%20want%20to%20enroll%20in%20your%20course" target="_blank" rel="noopener noreferrer" aria-label="Chat with Skillor on WhatsApp">WA</a>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<div class="whatsapp-float">
+  <a href="https://wa.me/+918606826935?text=Hi%2C%20I%20want%20to%20enroll%20in%20your%20course" target="_blank" rel="noopener noreferrer" aria-label="Chat with Skillor Learning on WhatsApp">
+    <img src="whatsap icon.jpg" alt="WhatsApp icon" loading="lazy">
+  </a>
+</div>
+
+<!-- ENROLLMENT MODAL -->
+<div id="enrollModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2 id="popupTitle">Enroll in AI-Integrated Digital Marketing Course</h2>
+      <span class="close" onclick="closeEnrollModal()">&times;</span>
+    </div>
+    <div class="modal-body">
+      <div id="enrollView">
+        <form id="enrollForm" onsubmit="submitEnrollForm(event)">
+          <div class="form-group"><label for="name">Full Name *</label><input type="text" id="name" name="fullName" placeholder="Full Name" required></div>
+          <div class="form-group"><label for="email">Email Address *</label><input type="email" id="email" name="email" placeholder="Email Address" required></div>
+          <div class="form-group"><label for="phone">Phone Number *</label><input type="tel" id="phone" name="phone" placeholder="Phone Number" required></div>
+          <div class="form-group"><label for="experience">Experience Level</label><select id="experience" name="experience"><option value="">Select Experience</option><option value="Beginner">Beginner</option><option value="Intermediate">Intermediate</option><option value="Advanced">Advanced</option></select></div>
+          <div class="form-group"><label for="goals">What are your goals? (Optional)</label><textarea id="goals" name="goals" rows="3" placeholder="e.g., Start freelancing, get a job, build my brand..."></textarea></div>
+          <button type="submit" class="submit-btn">Submit &amp; Get Course Details →</button>
+          <p id="successMsg" style="display:none; color:#a7ffcf; margin-top:10px; text-align:center;">Successfully submitted.</p>
+          <p class="form-note">* Required fields. We'll contact you within 24 hours with enrollment instructions.</p>
+        </form>
+      </div>
+      <div id="notifyView" class="notify-view" style="display:none;">
+        <p class="notify-message">Join our WhatsApp community to get updates on this course.</p>
+        <a id="joinCommunityBtn" class="submit-btn notify-join-btn" href="https://chat.whatsapp.com/Gpl7ivEduUSLgckb1aHgBe" target="_blank" rel="noopener">Join Community</a>
+        <p class="form-note">Course updates, launch dates, and announcements are shared in the community.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="script.js" defer></script>
+</body>
+</html>
